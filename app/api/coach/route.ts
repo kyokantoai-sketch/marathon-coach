@@ -31,11 +31,11 @@ export async function POST(request: NextRequest) {
 
     // AIコーチと対話
     const reply = await chatWithCoach(
-      message,
-      history,
-      trainingData,
-      settings.coach_character
-    );
+  message,
+  history as any,  // ← ここがエラー
+  trainingData,
+  settings.coach_character
+);
 
     // 会話を保存
     await saveConversation('user', message);
