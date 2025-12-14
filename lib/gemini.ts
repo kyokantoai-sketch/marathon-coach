@@ -11,7 +11,7 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
  * スクショからトレーニングデータを抽出
  */
 export async function extractTrainingData(imageBase64: string) {
-  const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-exp' });
+  const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
   const prompt = `
 以下の画像からトレーニングデータを抽出してください。
@@ -93,7 +93,7 @@ export async function extractMultipleImages(imageBase64Array: string[]) {
  * 相対日付を絶対日付に変換
  */
 export async function convertRelativeDate(text: string, baseDate: Date = new Date()) {
-  const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-exp' });
+  const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
   const prompt = `
 以下のテキストに含まれる相対日付（「今日」「昨日」「先週の土曜日」など）を、
@@ -118,7 +118,7 @@ export async function chatWithCoach(
   trainingData: any,
   characterType: string = 'balanced'
 ) {
-  const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-exp' });
+  const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
   const characterPrompts = {
     strict: '厳しいコーチとして、データに基づいて的確に指導してください。甘やかさず、目標達成にフォーカスします。',
@@ -170,7 +170,7 @@ export async function predictBossWinRate(
   currentProgress: number,
   recentData: any
 ) {
-  const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-exp' });
+  const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
   const daysRemaining = Math.ceil(
     (targetDate.getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)
