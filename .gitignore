@@ -43,3 +43,7 @@ next-env.d.ts
 /public/sw.js.map
 /public/workbox-*.js.map
 /public/worker-*.js.map
+
+# AI駆動開発オペレーション（§3.4 セッション⇔タスク紐づけ）
+.claude/current-task.local
+.claude/settings.local.json
