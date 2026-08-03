@@ -1,5 +1,18 @@
 # Marathon Coach PWA
 
+> ## 🛑 このプロジェクトは開発終了しました（2026-08-02）
+>
+> **後継は「NAHAマラソン2026 完走管理」（WtN / `projects/WtN`）です。** 以降の開発はそちらで行います。
+> 以下のドキュメントは**当時の記録**として残していますが、そのまま実行しないでください。
+>
+> - **`schema.sql` を本番DBに流さないでください。** この README が `POSTGRES_URL` と呼んでいる本番DBには、
+>   **別アプリ（chirashi / chotto-good ポータル）の現役データ約30MB が入っています。**
+>   marathon-coach 自身のテーブルは1つも存在しません。
+> - Vercel の Neon ストアは 2026-08-03 に chotto-good へ移管済みです（marathon-coach からは切断済み）。
+> - `gemini-1.5-flash` は 2026-08-01 時点で **404＝提供終了**です（実測）。動かないのは仕様ではなく寿命です。
+>
+> 経緯: `brain-personal/decisions/marathon-coach/` ／ 廃止作業: `TASK-20260802-036`
+
 AI搭載のマラソントレーニングアシスタントアプリ（PWA）
 
 ## 🚀 機能
@@ -97,6 +110,9 @@ vercel env pull .env.local
 4. 環境変数をコピーして`.env.local`に貼り付け
 
 ### 5. データベースの初期化
+
+> 🛑 **実行しないでください（2026-08-02 開発終了）。** ここで言う本番DBには別アプリ（chirashi）の
+> 現役データが入っています。詳細は冒頭の注意書きを参照。
 
 Vercel Postgresダッシュボードで`schema.sql`を実行：
 
